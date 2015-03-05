@@ -1,0 +1,173 @@
+/* SRF Data Generic Stylesheet */
+/* VARIABLES */
+/* Colors */
+
+$palettes: ( srf-red: ( base: #fe0000, highlight: #fe6666), srf-orange: ( base: #ff7c00, highlight: #ffb066), srf-yellow: ( base: #ffd800, highlight: #ffeb80), srf-monochrome: ( darker: #222222, dark: #555555, base: #94928d, light: #ebebe5, lighter: #f5f5f2, white: #ffffff));
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+/* Fonts */
+
+$font-catchphrase: 20px/24px 'SRG_SSRserif';
+$font-regular-15: 15px 'SRG_SSR regular';
+$font-regular-13: 13px 'SRG_SSR regular';
+$font-normal-13: 13px 'SRG_SSR';
+$font-medium-13: 13px 'SRG_SSR medium';
+$font-arial-12: 12px 'Arial';
+$font-arial-10: 10px 'Arial';
+$font-arial-for-legend: 10px/13px 'Arial';
+$font-color: palette(srf-monochrome, dark);
+$font-color-chart: #222222;
+/* Paddings */
+
+$spacer-vertical-big: 32px;
+$spacer-vertical-small: 16px;
+$padding-small: 10px;
+/* GENERAL */
+/* Only applies to CMS iFrames */
+
+.srfdata-cms-iframe {
+    body {
+        background-color: palette(srf-monochrome, light);
+        color: $font-color;
+        font: $font-regular-15;
+    }
+}
+a, a:hover, a:active {
+    text-decoration: underline;
+    color: $font-color;
+}
+/* ELEMENTS */
+/* Buttons */
+
+.srfdata-button {
+    background-color: palette(srf-monochrome, lighter);
+    text-align: center;
+    height: 32px;
+    font: $font-regular-13;
+}
+/* Vertical Spacers */
+
+div.srfdata-big-vertical-spacer {
+    height: $spacer-vertical-big;
+}
+div.srfdata-small-vertical-spacer {
+    height: $spacer-vertical-small;
+}
+/* Charts / Elements */
+/* Draggable Histogram */
+
+.srfdata-element {
+    .title {
+        h3 {
+            font: $font-regular-15;
+            margin: 0;
+            padding: 0;
+            float: left;
+            margin-bottom: 10px;
+        }
+        hr {
+            margin-top: 0;
+            margin-bottom: $padding-small;
+            border-top: 1px solid palette(srf-monochrome, base);
+            clear: both;
+        }
+        span.reset {
+            float: right;
+            font: $font-regular-15;
+            cursor: pointer;
+        }
+    }
+}
+.srfdata-draggable-histogram {
+    // background-color: palette(srf-monochrome, base);
+    // display: inline-block;
+    .background.bars {
+        fill: palette(srf-monochrome, dark);
+    }
+    .foreground.bars {
+        fill: palette(srf-monochrome, darker);
+    }
+    .axis path, .axis line {
+        fill: none;
+        stroke: palette(srf-monochrome, dark);
+        shape-rendering: crispEdges;
+    }
+    .axis text {
+        font: $font-arial-10;
+        fill: palette(srf-monochrome, dark);
+        stroke: none;
+    }
+    .brush rect.extent {
+        fill: palette(srf-monochrome, white);
+        fill-opacity: .15;
+    }
+    .brush .resize path {
+        fill: #eee;
+        stroke: #666;
+    }
+}
+.srfdata-searchable-barchart {
+    font: $font-medium-13;
+    p {
+        cursor: pointer;
+    }
+    p.active {
+        border: 1px solid;
+    }
+}
+/* Tables */
+
+.srfdata-table {
+    background-color: palette(srf-monochrome, lighter);
+    height: 100%;
+    table {
+        font: $font-regular-13;
+        thead {
+            background-color: palette(srf-monochrome, base);
+            color: palette(srf-monochrome, white);
+            th {
+                text-transform: uppercase;
+                font-weight: normal;
+                cursor: pointer;
+            }
+            th.active {
+                background-color: palette(srf-monochrome, base);
+                font-weight: bold;
+            }
+        }
+    }
+    .pagination-menu {
+        background-color: palette(srf-monochrome, light);
+        font: $font-arial-12;
+        height: $spacer-vertical-small;
+        a {
+            margin: 0px 5px 0px 5px;
+            text-decoration: none;
+            color: palette(srf-monochrome, base);
+        }
+        a.clickable {
+            color: palette(srf-monochrome, dark);
+            cursor: pointer;
+        }
+        a.active {
+            font-weight: bold;
+        }
+    }
+}
+/* Custom stuff */
+
+.srfdata-data-download {
+    background-color: palette(srf-monochrome, lighter);
+    padding: $padding-small;
+    font: $font-arial-12;
+    h2 {
+        font: $font-regular-15;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+}
+.srfdata-source {
+    text-align: right;
+    font: $font-arial-10;
+}

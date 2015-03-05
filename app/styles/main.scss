@@ -1,0 +1,57 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// import bootstrap adapted for srfdata
+@import "adapted-bootstrap";
+// import a custom build of bootstrap that contains only the necessary stuff
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+@import "srf-font-definitions";
+@import "srfdata";
+/* Charts */
+
+line.link {
+    stroke: palette(srf-monochrome, base);
+}
+.node {
+    cursor: pointer;
+    circle.kreis {
+        fill: palette(srf-monochrome, dark);
+    }
+    circle.sausage {
+        z-index: 1000;
+    }
+}
+line.link.strong {
+    stroke: palette(srf-red, base);
+}
+.vis-tooltip {
+    padding: 5px 10px 5px 10px;
+    font: $font-arial-12;
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.25);
+    /* WebKit */
+    
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.25);
+    /* Firefox */
+    
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.25);
+    /* Standard */
+    
+    border: none;
+    background: white;
+    display: none;
+    position: absolute;
+    z-index: 9;
+    color: palette(srf-monochrome, darker);
+    opacity: 0.94;
+}
+.auswahl {
+    width: 100%;
+    border-radius: 0px;
+    font: $font-regular-15;
+    background-color: palette(srf-monochrome, lighter);
+    height: 34px;
+    padding-left: $padding-small;
+    option {
+      padding: 5px;
+    }
+}
