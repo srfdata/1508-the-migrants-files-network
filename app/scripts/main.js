@@ -75,7 +75,7 @@ $(function() {
                 .data(json.nodes)
                 .enter().append("g")
                 .attr("class", "node")
-                .call(force.drag);
+                // .call(force.drag);
 
             node.append("circle")
                 .attr("r", function(d) {
