@@ -26,6 +26,14 @@ $padding-small: 10px;
 /* GENERAL */
 /* Only applies to CMS iFrames */
 
+h2 {
+    font-family: 'SRG_SSR medium', Arial, Helvetica, Verdana;
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 0px;
+    margin: 0;
+    color: #555;
+}
 
 .srfdata-cms-iframe {
     body {
