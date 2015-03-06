@@ -26,11 +26,17 @@ $padding-small: 10px;
 /* GENERAL */
 /* Only applies to CMS iFrames */
 
+
 .srfdata-cms-iframe {
     body {
         background-color: palette(srf-monochrome, light);
         color: $font-color;
         font: $font-regular-15;
+    }
+    .container {
+        width: 624px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
 a, a:hover, a:active {
