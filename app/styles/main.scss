@@ -14,15 +14,27 @@ line.link {
 }
 .node {
     cursor: pointer;
-    circle.kreis {
+    circle.beneficiary {
+        fill: palette(srf-monochrome, base);
+    }
+    circle.project {
         fill: palette(srf-monochrome, dark);
     }
     circle.sausage {
         z-index: 1000;
     }
+    circle.beneficiary.airbus {
+        fill: palette(srf-orange, base);
+    }
+    circle.beneficiary.thales {
+        fill: palette(srf-yellow, base);
+    }
+    circle.beneficiary.fin {
+        fill: palette(srf-red, base);
+    }
 }
-line.link.strong {
-    stroke: palette(srf-red, base);
+line.link {
+    opacity: 0.5;
 }
 .vis-tooltip {
     padding: 5px 10px 5px 10px;
@@ -53,5 +65,27 @@ line.link.strong {
     padding-left: $padding-small;
     option {
       padding: 5px;
+    }
+}
+
+svg.legend-point {
+    width: 20px;
+    height: 20px;
+}
+
+.srfdata-data-download {
+    ul {
+        list-style: none;
+        padding: 0px;
+        li {
+            span {
+                margin-top: -20px;
+                display: block;
+                padding-left: 20px;
+            }
+        }
+        li.topmost {
+            margin-bottom: 7px;
+        }
     }
 }

@@ -5,16 +5,11 @@ $(function() {
     var data = [],
         width, height, radius, link_distance, charge, color, svg, force, node, link, value, key, jTool;
 
-
-
-
-    color = ["#555555", "#fe0000"];
-
     // Variabeln Set für www
     data.www = {};
     data.www.width = 592;
     data.www.height = 592;
-    data.www.radius = 2;
+    data.www.radius = 4;
     data.www.link_distance = 120; //130 für alle Links
     data.www.charge = -17; //-150 für alle Links
 
@@ -53,7 +48,7 @@ $(function() {
             .charge(charge)
             .size([width, height]);
 
-        d3.json("data/IMI-klein2.json", function(error, json) {
+        d3.json("data/tmf.json", function(error, json) {
 
             force
                 .nodes(json.nodes)
@@ -79,11 +74,30 @@ $(function() {
 
             node.append("circle")
                 .attr("r", function(d) {
-                    return Math.sqrt(d.anzahl * 1.5) + radius;
+                    if(d.type !== "Project"){
+                    return radius;
+                } else {
+                    return radius * 1.5;
+                }
                 }) //hier (und unten!) Radius für Vernetzungsgrad einstellen
-                .attr("class", "kreis")
+                .attr("class", function(d){
+                    if(d.type === "Project"){
+                        return "project kreis"
+                    } else {
+                        return "beneficiary kreis"
+                    }
+                })
+                .classed("airbus", function(d){
+                    return d.type == "Airbus Group";
+                })
+                .classed("thales", function(d){
+                    return d.type == "Thales";
+                })
+                .classed("fin", function(d){
+                    return d.type == "Finmeccanica";
+                });
                 // .style("fill", function(d) { return "#1f77b4"; });
-
+            
             node.append("circle")
                 .attr("r", radius * 4)
                 .attr('class', 'sausage')
@@ -126,8 +140,7 @@ $(function() {
                 node.attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });
-
-                d3.selectAll("select").
+                /*d3.selectAll("select").
                 on("change", function() {
 
                     value = this.value;
@@ -139,18 +152,24 @@ $(function() {
                             .style("fill", function(d) {
                                 return color[0];
                             });
+                        svg.selectAll(".project")
+                            .transition()
+                            .duration(1000)
+                            .style("fill", function(d) {
+                                return color[2];
+                            });
                         svg.selectAll(".link.strong")
                             .transition()
                             .duration(1000)
                             .style("stroke", function(d) {
                                 return color[1];
                             });
-                    } else if (value == "unis") {
-                        svg.selectAll(".kreis")
+                    } else if (value == "airbus") {
+                        svg.selectAll(".beneficiary")
                             .transition()
                             .duration(1000)
                             .style("fill", function(d) {
-                                if (d.typ == "UNI") return color[1];
+                                if (d.type == "Airbus Group") return color[1];
                                 else return color[0];
                             });
                             svg.selectAll(".link.strong")
@@ -159,12 +178,26 @@ $(function() {
                             .style("stroke", function(d) {
                                 return color[0];
                             });
-                    } else if (value == "firma") {
-                        svg.selectAll(".kreis")
+                    } else if (value == "thales") {
+                        svg.selectAll(".beneficiary")
                             .transition()
                             .duration(1000)
                             .style("fill", function(d) {
-                                if (d.typ == "EFPIA") return color[1];
+                                if (d.type == "Thales") return color[1];
+                                else return color[0];
+                            });
+                        svg.selectAll(".link.strong")
+                            .transition()
+                            .duration(1000)
+                            .style("stroke", function(d) {
+                                return color[0];
+                            });
+                    } else if (value == "fin") {
+                        svg.selectAll(".beneficiary")
+                            .transition()
+                            .duration(1000)
+                            .style("fill", function(d) {
+                                if (d.type == "Finmeccanica") return color[1];
                                 else return color[0];
                             });
                         svg.selectAll(".link.strong")
@@ -174,7 +207,7 @@ $(function() {
                                 return color[0];
                             });
                     }
-                });
+                });*/
             });
         });
     }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>1502 pharma imi</title>
+    <title>Das Netzwerk der Projektbeteiligten</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -23,29 +23,57 @@
             <div class="vis-tooltip"></div>
             <div class="srfdata-big-vertical-spacer"></div>
 
-            <h2>Das Netzwerk der IMI-Teilnehmer</h2>
+            <h2>Das Netzwerk der Projektbeteiligten</h2>
             <div class="srfdata-small-vertical-spacer"></div>
 
-            <div class="description ">
+            <!-- <div class="description ">
                 <select class="auswahl form-control" name="auswahl">
-                    <option value="zurueck">Enge Verbindungen anzeigen</option>
-                    <option value="unis">Forschungseinrichtungen anzeigen</option>
-                    <option value="firma">Pharmaunternehmen anzeigen</option>
+                    <option value="zurueck" selected="selected">Ausgangslage</option>
+                    <option value="airbus">Unternehmen der Airbus-Gruppe hervorheben</option>
+                    <option value="thales">Unternehmen der Thales-Gruppe hervorheben</option>
+                    <option value="fin">Unternehmen der Finmeccanica-Gruppe hervorheben</option>
                 </select>
-            </div>
+            </div> -->
             <div class="srfdata-big-vertical-spacer"></div>
 
             <div id="vis"></div>
             <div class="srfdata-big-vertical-spacer"></div>
             <div class="srfdata-data-download">
                 <h2>Legende</h2>
-                <p><strong>Die Punkte</strong> stehen für Teilnehmer des IMI-Netzwerks, also für Forschungseinrichtungen und Pharmaunternehmen. An <em>je mehr unterschiedlichen Projekten</em> ein Teilnehmer mitarbeitet, umso <strong>grösser</strong> wird sein Punkt dargestellt. Fahren Sie mit der Maus über einen Teilnehmer, um seinen Namen anzuzeigen.</p>
+                <ul>
+                <li class="topmost">
+                <svg class="legend-point"><g class="node">
+                <circle class="project kreis" r="6" cx="10" cy="10"></circle></g> 
+                </svg><span>Forschungsprojekt</span>
+                </li>
+                <li>
+                <svg class="legend-point"><g class="node">
+                <circle class="beneficiary airbus kreis" r="4" cx="10" cy="10"></circle></g>
+                </svg><span>Airbus</span>
+                </li>
+                <li>
+                <svg class="legend-point"><g class="node">
+                <circle class="beneficiary thales kreis" r="4" cx="10" cy="10"></circle></g>
+                </svg><span>Thales</span>
+                </li>
+                <li>
+                <svg class="legend-point"><g class="node">
+                <circle class="beneficiary fin kreis" r="4" cx="10" cy="10"></circle></g> 
+                </svg><span>Finmeccanica</span>
+                </li>
+                <li>
+                <svg class="legend-point"><g class="node">
+                <circle class="beneficiary kreis" r="4" cx="10" cy="10"></circle></g> 
+                </svg><span>Sonstige</span>
+                </li>
+                </ul>
+                <!-- <p><strong>Die Punkte</strong> stehen für Teilnehmer des IMI-Netzwerks, also für Forschungseinrichtungen und Pharmaunternehmen. An <em>je mehr unterschiedlichen Projekten</em> ein Teilnehmer mitarbeitet, umso <strong>grösser</strong> wird sein Punkt dargestellt. Fahren Sie mit der Maus über einen Teilnehmer, um seinen Namen anzuzeigen.</p>
                 <p><strong>Verbindungen</strong> zwischen IMI-Teilnehmern werden dargestellt, sobald ein Paar von IMI-Teilnehmern <em>an mehr als einem Projekt gemeinsam</em> beteiligt ist. Forschungseinrichtungen, zum Beispiel Universitäten, finden sich vor allem am Rand des Netzwerks, grosse Pharmaunternehmen sind dagegen stärker im eng verzweigten Zentrum zu finden.</p>
 
-                <p><strong>Enge Verbindungen</strong> zwischen IMI-Teilnehmern werden <strong>rot</strong> dargestellt, sobald ein Paar von IMI-Teilnehmern <em>an mehr als zehn Projekten gemeinsam</em> beteiligt ist.</p>
+                <p><strong>Enge Verbindungen</strong> zwischen IMI-Teilnehmern werden <strong>rot</strong> dargestellt, sobald ein Paar von IMI-Teilnehmern <em>an mehr als zehn Projekten gemeinsam</em> beteiligt ist.</p> -->
             </div>
             <div class="srfdata-small-vertical-spacer"></div>
-            <div class="srfdata-source">Quellen: Innovative Medicines Initiative (IMI), Spiegel.</div>
+            <div class="srfdata-source">Quelle: <a href="https://docs.google.com/spreadsheets/d/1cynO8lp6crS4p9kJZUqYUigEB15F2cAwGm7aD9cwoZU/edit?pli=1#gid=127663910" target="_blank">«The Migrants' Files»</a></div>
             <div class="srfdata-big-vertical-spacer"></div>
         </div>
     </div>
