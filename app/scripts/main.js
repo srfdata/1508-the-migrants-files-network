@@ -13,23 +13,25 @@ $(function() {
     data.www.link_distance = 120; //130 für alle Links
     data.www.charge = -17; //-150 für alle Links
 
-    /*// Variabeln Set für mobile
+    // Variabeln Set für mobile
     data.mobile = {};
     data.mobile.width = 320;
     data.mobile.height = 320;
-    data.mobile.radius = 0.5;
+    data.mobile.radius = 2;
     data.mobile.link_distance = 70;
-    data.mobile.charge = -5; //charge für größere Zahl von Nodes angepasst*/
+    data.mobile.charge = -5; //charge für größere Zahl von Nodes angepasst
 
     function initGraph() {
 
-        /*if ($(window).width() > 500) { // bin ich breiter als 500px ---> www
+        if ($(window).width() > 623) { // bin ich breiter als 500px ---> www
             key = "www";
         } else { // sonst mobile
             key = "mobile";
+            data.mobile.width = $(window).width();
             $("body").addClass("mobile");
-        }*/
-        key = 'www';
+            console.log("mobile");
+        }
+        // key = 'www';
 
 
         jTool = $(".vis-tooltip");
@@ -38,7 +40,6 @@ $(function() {
         radius = data[key].radius;
         link_distance = data[key].link_distance;
         charge = data[key].charge;
-
         svg = d3.select("div#vis").append("svg")
             .attr("width", width)
             .attr("height", height);
